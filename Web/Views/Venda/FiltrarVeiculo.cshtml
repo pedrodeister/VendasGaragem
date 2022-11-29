@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<form method="post" action="/Venda/FiltrarVeiculo">
+    <div class="form-group">
+        <label>Selecione o modelo</label>
+        <select class="form-control" name="modeloID" onchange="Selecionar(this.value)">
+            <option>Selecione</option>
+            @foreach (var item in ViewBag.Modelos)
+            {
+                <option value="@item.id_modelo" @(ViewBag.modeloID != null ? (ViewBag.modeloID == item.id_modelo ? "selected" : "") : "") >@item.nome_modelo</option>
+
+            }
+        </select>
+    </div>
+</form>
+
+@if (ViewBag.Veiculos != null)
+{
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Placa</th>
+                        <th>Valor de compra</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Veiculos)
+                    {
+                        <tr class="odd gradeX">
+                            <td>@item.modelo</td>
+                            <td>@item.marca</td>
+                            <td>@item.placa</td>
+                            <td>@item.valor_compra.ToString("C2")</td>
+                            <td><a href="/Venda/FinalizarVenda?veiculoID=@item.veiculoid" class="btn btn-success">Selecionar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<script>
+
+    function Selecionar(idModelo) {
+        if (idModelo != "")
+            location = "/Venda/FiltrarVeiculo?modeloID=" + idModelo;
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+

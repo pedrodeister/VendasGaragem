@@ -1,0 +1,33 @@
+﻿@model DAO.tb_cliente
+
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<form method="post" action="/Cliente/GravarCliente">
+
+    <input type="hidden" name="id_cliente" value="@Model.id_cliente" />
+
+    <div class="form-group">
+        <label>Nome do cliente</label>
+        <input class="form-control" placeholder="Digite aqui..." name="nome_cliente" value="@Model.nome_cliente" />
+    </div>
+
+    <div class="form-group">
+        <label>Endereço</label>
+        <input class="form-control" placeholder="Digite aqui..." name="end_cliente" value="@Model.end_cliente" />
+    </div>
+
+    <div class="form-group">
+        <label>Telefone</label>
+        <input class="form-control" placeholder="Digite aqui..." name="tel_cliente" value="@Model.tel_cliente" />
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" placeholder="Digite aqui..." name="email_cliente" value="@Model.email_cliente" />
+
+    </div>
+
+    <button class="btn btn-success btn-lg" name="btn" value="1">Gravar</button>
+    <button class="btn btn-danger btn-lg" name="btn" value="2">Excluir</button>
+</form>

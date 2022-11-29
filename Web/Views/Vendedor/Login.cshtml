@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_login.cshtml";
+}
+
+<form method="post" action="/Vendedor/ValidarLogin">
+    <br />
+    <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+        <input type="text" class="form-control" name="email" placeholder="Email " />
+    </div>
+    <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="password" class="form-control" name="senha" placeholder="Senha" />
+    </div>
+
+
+    <button class="btn btn-primary ">Acessar</button>
+
+</form>
+

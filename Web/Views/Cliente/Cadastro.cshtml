@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<form method="post" action="/Cliente/GravarCliente">
+
+    <div class="form-group">
+        <label>Nome do cliente</label>
+        <input class="form-control" placeholder="Digite aqui..." name="nome_cliente" value="@ViewBag.nome_cliente"/>
+    </div>
+
+    <div class="form-group">
+        <label>Endereço</label>
+        <input class="form-control" placeholder="Digite aqui..." name="end_cliente" value="@ViewBag.end_cliente"/>
+    </div>
+
+    <div class="form-group">
+        <label>Telefone</label>
+        <input class="form-control" placeholder="Digite aqui..." name="tel_cliente" value="@ViewBag.tel_cliente"/>
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" placeholder="Digite aqui..." name="email_cliente" value="@ViewBag.Email"/>
+    </div>
+
+    <button class="btn btn-success btn-lg" name="btn_cadastrar">Gravar</button>
+</form>

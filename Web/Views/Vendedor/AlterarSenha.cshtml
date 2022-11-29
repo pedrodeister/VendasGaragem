@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@if (ViewBag.SenhaVerificada == null)
+{
+    <form method="post" action="/Vendedor/VerificarSenhaAtual">
+
+        <div class="form-group col-md-12">
+            <label>Senha Atual</label>
+            <input class="form-control" type="password" name="senha" value="@ViewBag.senha" />
+        </div>
+
+        <center>
+            <button class="btn btn-success btn-lg">Confirmar senha atual</button>
+        </center>
+
+    </form>
+}
+else
+{
+    <form method="post" action="/Vendedor/AlterarSenhaAtual">
+        <div class="form-group col-md-12">
+            <label>Nova Senha</label>
+            <input class="form-control" type="password" name="novasenha" value="@ViewBag.novasenha" />
+        </div>
+        <div class="form-group col-md-12">
+            <label>Repetir Nova Senha</label>
+            <input class="form-control" type="password" name="confirmarsenha" value="@ViewBag.confirmarsenha" />
+        </div>
+
+        <center>
+            <button class="btn btn-success btn-lg">Alterar senha</button>
+        </center>
+    </form>
+}
+
+
+
+
+

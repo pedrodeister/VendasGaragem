@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\VendasGaragem\\VendasGaragem.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\DAO\\DAO.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\DAO\\DAO.csproj",
+        "projectName": "DAO",
+        "projectPath": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\DAO\\DAO.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\VendasGaragem\\VendasGaragem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\VendasGaragem\\VendasGaragem.csproj",
+        "projectName": "VendasGaragem",
+        "projectPath": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\VendasGaragem\\VendasGaragem.csproj",
+        "packagesPath": "C:\\Users\\Pedro Deister\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\VendasGaragem\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pedro Deister\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\Pedro Deister\\Documents\\Curso C#\\Pedro\\VendasGaragem\\DAO\\DAO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

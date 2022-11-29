@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_garagem_pedroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="banco" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="sysdiagrams" EntityType="db_garagem_pedroModel.sysdiagrams" />
+    <EntitySet Name="tb_cliente" EntityType="db_garagem_pedroModel.tb_cliente" />
+    <EntitySet Name="tb_cor" EntityType="db_garagem_pedroModel.tb_cor" />
+    <EntitySet Name="tb_empresa" EntityType="db_garagem_pedroModel.tb_empresa" />
+    <EntitySet Name="tb_marca" EntityType="db_garagem_pedroModel.tb_marca" />
+    <EntitySet Name="tb_modelo" EntityType="db_garagem_pedroModel.tb_modelo" />
+    <EntitySet Name="tb_veiculo" EntityType="db_garagem_pedroModel.tb_veiculo" />
+    <EntitySet Name="tb_venda" EntityType="db_garagem_pedroModel.tb_venda" />
+    <EntitySet Name="tb_vendedores" EntityType="db_garagem_pedroModel.tb_vendedores" />
+    <AssociationSet Name="FK_tb_venda_tb_cliente" Association="db_garagem_pedroModel.FK_tb_venda_tb_cliente">
+      <End Role="tb_cliente" EntitySet="tb_cliente" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_cor_tb_empresa" Association="db_garagem_pedroModel.FK_tb_cor_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_cor" EntitySet="tb_cor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_cor" Association="db_garagem_pedroModel.FK_tb_veiculo_tb_cor">
+      <End Role="tb_cor" EntitySet="tb_cor" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_marca_tb_empresa" Association="db_garagem_pedroModel.FK_tb_marca_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_marca" EntitySet="tb_marca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_modelo_tb_empresa" Association="db_garagem_pedroModel.FK_tb_modelo_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_empresa" Association="db_garagem_pedroModel.FK_tb_veiculo_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_vendedores_tb_empresa" Association="db_garagem_pedroModel.FK_tb_vendedores_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_vendedores" EntitySet="tb_vendedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_modelo_tb_marca" Association="db_garagem_pedroModel.FK_tb_modelo_tb_marca">
+      <End Role="tb_marca" EntitySet="tb_marca" />
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_modelo" Association="db_garagem_pedroModel.FK_tb_veiculo_tb_modelo">
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venda_tb_veiculo" Association="db_garagem_pedroModel.FK_tb_venda_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venda_tb_vendedores" Association="db_garagem_pedroModel.FK_tb_venda_tb_vendedores">
+      <End Role="tb_vendedores" EntitySet="tb_vendedores" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="end_cliente" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="tel_cliente" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="email_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_vendedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_venda" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_cliente" FromRole="tb_cliente" ToRole="tb_venda" />
+  </EntityType>
+  <EntityType Name="tb_cor">
+    <Key>
+      <PropertyRef Name="id_cor" />
+    </Key>
+    <Property Name="id_cor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_cor" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="empresa_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_empresa" Relationship="db_garagem_pedroModel.FK_tb_cor_tb_empresa" FromRole="tb_cor" ToRole="tb_empresa" />
+    <NavigationProperty Name="tb_veiculo" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_cor" FromRole="tb_cor" ToRole="tb_veiculo" />
+  </EntityType>
+  <EntityType Name="tb_empresa">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnpj" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tb_cor" Relationship="db_garagem_pedroModel.FK_tb_cor_tb_empresa" FromRole="tb_empresa" ToRole="tb_cor" />
+    <NavigationProperty Name="tb_marca" Relationship="db_garagem_pedroModel.FK_tb_marca_tb_empresa" FromRole="tb_empresa" ToRole="tb_marca" />
+    <NavigationProperty Name="tb_modelo" Relationship="db_garagem_pedroModel.FK_tb_modelo_tb_empresa" FromRole="tb_empresa" ToRole="tb_modelo" />
+    <NavigationProperty Name="tb_veiculo" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_empresa" FromRole="tb_empresa" ToRole="tb_veiculo" />
+    <NavigationProperty Name="tb_vendedores" Relationship="db_garagem_pedroModel.FK_tb_vendedores_tb_empresa" FromRole="tb_empresa" ToRole="tb_vendedores" />
+  </EntityType>
+  <EntityType Name="tb_marca">
+    <Key>
+      <PropertyRef Name="id_marca" />
+    </Key>
+    <Property Name="id_marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_marca" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="empresa_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_empresa" Relationship="db_garagem_pedroModel.FK_tb_marca_tb_empresa" FromRole="tb_marca" ToRole="tb_empresa" />
+    <NavigationProperty Name="tb_modelo" Relationship="db_garagem_pedroModel.FK_tb_modelo_tb_marca" FromRole="tb_marca" ToRole="tb_modelo" />
+  </EntityType>
+  <EntityType Name="tb_modelo">
+    <Key>
+      <PropertyRef Name="id_modelo" />
+    </Key>
+    <Property Name="id_modelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_modelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="marca_id" Type="Int32" Nullable="false" />
+    <Property Name="empresa_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_empresa" Relationship="db_garagem_pedroModel.FK_tb_modelo_tb_empresa" FromRole="tb_modelo" ToRole="tb_empresa" />
+    <NavigationProperty Name="tb_marca" Relationship="db_garagem_pedroModel.FK_tb_modelo_tb_marca" FromRole="tb_modelo" ToRole="tb_marca" />
+    <NavigationProperty Name="tb_veiculo" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_modelo" FromRole="tb_modelo" ToRole="tb_veiculo" />
+  </EntityType>
+  <EntityType Name="tb_veiculo">
+    <Key>
+      <PropertyRef Name="id_veiculo" />
+    </Key>
+    <Property Name="id_veiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="placa" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="direcao" Type="Int16" Nullable="false" />
+    <Property Name="airbag" Type="Boolean" Nullable="false" />
+    <Property Name="ar" Type="Boolean" Nullable="false" />
+    <Property Name="situacao" Type="Int16" Nullable="false" />
+    <Property Name="ano_fab" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ano_modelo" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="km" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="n_portas" Type="Int16" Nullable="false" />
+    <Property Name="valor_compra" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="valor_venda" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="obs" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="empresa_id" Type="Int32" Nullable="false" />
+    <Property Name="modelo_id" Type="Int32" Nullable="false" />
+    <Property Name="cor_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_cor" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_cor" FromRole="tb_veiculo" ToRole="tb_cor" />
+    <NavigationProperty Name="tb_empresa" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_empresa" FromRole="tb_veiculo" ToRole="tb_empresa" />
+    <NavigationProperty Name="tb_modelo" Relationship="db_garagem_pedroModel.FK_tb_veiculo_tb_modelo" FromRole="tb_veiculo" ToRole="tb_modelo" />
+    <NavigationProperty Name="tb_venda" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_venda" />
+  </EntityType>
+  <EntityType Name="tb_venda">
+    <Key>
+      <PropertyRef Name="id_venda" />
+    </Key>
+    <Property Name="id_venda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="forma_pagamento" Type="Int16" Nullable="false" />
+    <Property Name="veiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="vendedor_id" Type="Int32" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_cliente" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_cliente" FromRole="tb_venda" ToRole="tb_cliente" />
+    <NavigationProperty Name="tb_veiculo" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_veiculo" FromRole="tb_venda" ToRole="tb_veiculo" />
+    <NavigationProperty Name="tb_vendedores" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_vendedores" FromRole="tb_venda" ToRole="tb_vendedores" />
+  </EntityType>
+  <EntityType Name="tb_vendedores">
+    <Key>
+      <PropertyRef Name="id_vendedor" />
+    </Key>
+    <Property Name="id_vendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="empresa_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_empresa" Relationship="db_garagem_pedroModel.FK_tb_vendedores_tb_empresa" FromRole="tb_vendedores" ToRole="tb_empresa" />
+    <NavigationProperty Name="tb_venda" Relationship="db_garagem_pedroModel.FK_tb_venda_tb_vendedores" FromRole="tb_vendedores" ToRole="tb_venda" />
+  </EntityType>
+  <Association Name="FK_tb_venda_tb_cliente">
+    <End Type="db_garagem_pedroModel.tb_cliente" Role="tb_cliente" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_venda" Role="tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_cor_tb_empresa">
+    <End Type="db_garagem_pedroModel.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_cor" Role="tb_cor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_cor">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_cor">
+    <End Type="db_garagem_pedroModel.tb_cor" Role="tb_cor" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_veiculo" Role="tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cor">
+        <PropertyRef Name="id_cor" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="cor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_marca_tb_empresa">
+    <End Type="db_garagem_pedroModel.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_marca" Role="tb_marca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_marca">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_modelo_tb_empresa">
+    <End Type="db_garagem_pedroModel.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_modelo" Role="tb_modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_modelo">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_empresa">
+    <End Type="db_garagem_pedroModel.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_veiculo" Role="tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_vendedores_tb_empresa">
+    <End Type="db_garagem_pedroModel.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_vendedores" Role="tb_vendedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_vendedores">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_modelo_tb_marca">
+    <End Type="db_garagem_pedroModel.tb_marca" Role="tb_marca" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_modelo" Role="tb_modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_marca">
+        <PropertyRef Name="id_marca" />
+      </Principal>
+      <Dependent Role="tb_modelo">
+        <PropertyRef Name="marca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_modelo">
+    <End Type="db_garagem_pedroModel.tb_modelo" Role="tb_modelo" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_veiculo" Role="tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modelo">
+        <PropertyRef Name="id_modelo" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="modelo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venda_tb_veiculo">
+    <End Type="db_garagem_pedroModel.tb_veiculo" Role="tb_veiculo" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_venda" Role="tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="id_veiculo" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="veiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venda_tb_vendedores">
+    <End Type="db_garagem_pedroModel.tb_vendedores" Role="tb_vendedores" Multiplicity="1" />
+    <End Type="db_garagem_pedroModel.tb_venda" Role="tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_vendedores">
+        <PropertyRef Name="id_vendedor" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="vendedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

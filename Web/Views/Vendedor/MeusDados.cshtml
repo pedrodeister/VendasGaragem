@@ -1,0 +1,33 @@
+﻿@model DAO.tb_vendedores
+
+@{
+  
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<form method="post" action="/Vendedor/AlterarMeusDadosVendedos">
+    <input type="hidden" value="@Model.id_vendedor" name="vendedorID" />
+
+    <div class="form-group col-md-12">
+        <label>Nome</label>
+        <input class="form-control" required name="Nome" value="@Model.nome" />
+    </div>
+    <div class="form-group col-md-12">
+        <label>Endereço</label>
+        <input class="form-control" required name="endereco" value="@Model.endereco" />
+    </div>
+    <div class="form-group col-md-12">
+        <label>Telefone</label>
+        <input class="form-control" required  name="telefone" value="@Model.telefone" />
+    </div>
+    <div class="form-group col-md-12">
+        <label>E-mail</label>
+        <input class="form-control" required name="email" value="@Model.email" />
+    </div>
+    
+    <center>
+        <button class="btn btn-success btn-lg">Alterar dados</button>
+    </center>
+</form>
+
+

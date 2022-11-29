@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Clientes
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Clientes)
+                    {
+                        <tr class="odd gradeX">
+                            <td>@item.nome_cliente</td>
+                            <td>@item.end_cliente</td>
+                            <td>@item.tel_cliente</td>
+                            <td>@item.email_cliente</td>
+                            <td>
+                                <a href="/Cliente/Alterar?clienteID=@item.id_cliente" class="btn btn-warning btn-xs">Alterar</a>
+                                <a href="/Cliente/Excluir?clienteID=@item.id_cliente" class="btn btn-danger btn-xs">Excluir</a>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+

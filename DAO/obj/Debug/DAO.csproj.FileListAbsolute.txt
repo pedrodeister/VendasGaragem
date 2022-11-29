@@ -1,0 +1,12 @@
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\DAO.dll.config
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\DAO.dll
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\DAO.pdb
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\EntityFramework.dll
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\EntityFramework.xml
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\obj\Debug\DAO.dll
+C:\Users\Pedro Deister\Documents\Curso C#\Pedro\VendasGaragem\DAO\obj\Debug\DAO.pdb

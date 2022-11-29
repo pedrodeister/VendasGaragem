@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_garagem_pedroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="end_cliente" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="tel_cliente" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="email_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_vendedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_cor">
+    <Key>
+      <PropertyRef Name="id_cor" />
+    </Key>
+    <Property Name="id_cor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_cor" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="empresa_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_empresa">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cnpj" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_marca">
+    <Key>
+      <PropertyRef Name="id_marca" />
+    </Key>
+    <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_marca" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="empresa_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_modelo">
+    <Key>
+      <PropertyRef Name="id_modelo" />
+    </Key>
+    <Property Name="id_modelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="marca_id" Type="int" Nullable="false" />
+    <Property Name="empresa_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_veiculo">
+    <Key>
+      <PropertyRef Name="id_veiculo" />
+    </Key>
+    <Property Name="id_veiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="placa" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="direcao" Type="smallint" Nullable="false" />
+    <Property Name="airbag" Type="bit" Nullable="false" />
+    <Property Name="ar" Type="bit" Nullable="false" />
+    <Property Name="situacao" Type="smallint" Nullable="false" />
+    <Property Name="ano_fab" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ano_modelo" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="km" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="n_portas" Type="smallint" Nullable="false" />
+    <Property Name="valor_compra" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="valor_venda" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="obs" Type="varchar" MaxLength="100" />
+    <Property Name="empresa_id" Type="int" Nullable="false" />
+    <Property Name="modelo_id" Type="int" Nullable="false" />
+    <Property Name="cor_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_venda">
+    <Key>
+      <PropertyRef Name="id_venda" />
+    </Key>
+    <Property Name="id_venda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="100" />
+    <Property Name="forma_pagamento" Type="smallint" Nullable="false" />
+    <Property Name="veiculo_id" Type="int" Nullable="false" />
+    <Property Name="vendedor_id" Type="int" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_vendedores">
+    <Key>
+      <PropertyRef Name="id_vendedor" />
+    </Key>
+    <Property Name="id_vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="endereco" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefone" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="empresa_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tb_cor_tb_empresa">
+    <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+    <End Role="tb_cor" Type="Self.tb_cor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_cor">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_marca_tb_empresa">
+    <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+    <End Role="tb_marca" Type="Self.tb_marca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_marca">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_modelo_tb_empresa">
+    <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+    <End Role="tb_modelo" Type="Self.tb_modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_modelo">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_modelo_tb_marca">
+    <End Role="tb_marca" Type="Self.tb_marca" Multiplicity="1" />
+    <End Role="tb_modelo" Type="Self.tb_modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_marca">
+        <PropertyRef Name="id_marca" />
+      </Principal>
+      <Dependent Role="tb_modelo">
+        <PropertyRef Name="marca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_cor">
+    <End Role="tb_cor" Type="Self.tb_cor" Multiplicity="1" />
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cor">
+        <PropertyRef Name="id_cor" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="cor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_empresa">
+    <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_veiculo_tb_modelo">
+    <End Role="tb_modelo" Type="Self.tb_modelo" Multiplicity="1" />
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modelo">
+        <PropertyRef Name="id_modelo" />
+      </Principal>
+      <Dependent Role="tb_veiculo">
+        <PropertyRef Name="modelo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venda_tb_cliente">
+    <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="1" />
+    <End Role="tb_venda" Type="Self.tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venda_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_venda" Type="Self.tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="id_veiculo" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="veiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_venda_tb_vendedores">
+    <End Role="tb_vendedores" Type="Self.tb_vendedores" Multiplicity="1" />
+    <End Role="tb_venda" Type="Self.tb_venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_vendedores">
+        <PropertyRef Name="id_vendedor" />
+      </Principal>
+      <Dependent Role="tb_venda">
+        <PropertyRef Name="vendedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_vendedores_tb_empresa">
+    <End Role="tb_empresa" Type="Self.tb_empresa" Multiplicity="1" />
+    <End Role="tb_vendedores" Type="Self.tb_vendedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tb_vendedores">
+        <PropertyRef Name="empresa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_garagem_pedroModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_cor" EntityType="Self.tb_cor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_empresa" EntityType="Self.tb_empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_marca" EntityType="Self.tb_marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_modelo" EntityType="Self.tb_modelo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_veiculo" EntityType="Self.tb_veiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_venda" EntityType="Self.tb_venda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_vendedores" EntityType="Self.tb_vendedores" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_cor_tb_empresa" Association="Self.FK_tb_cor_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_cor" EntitySet="tb_cor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_marca_tb_empresa" Association="Self.FK_tb_marca_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_marca" EntitySet="tb_marca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_modelo_tb_empresa" Association="Self.FK_tb_modelo_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_modelo_tb_marca" Association="Self.FK_tb_modelo_tb_marca">
+      <End Role="tb_marca" EntitySet="tb_marca" />
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_cor" Association="Self.FK_tb_veiculo_tb_cor">
+      <End Role="tb_cor" EntitySet="tb_cor" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_empresa" Association="Self.FK_tb_veiculo_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_veiculo_tb_modelo" Association="Self.FK_tb_veiculo_tb_modelo">
+      <End Role="tb_modelo" EntitySet="tb_modelo" />
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venda_tb_cliente" Association="Self.FK_tb_venda_tb_cliente">
+      <End Role="tb_cliente" EntitySet="tb_cliente" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venda_tb_veiculo" Association="Self.FK_tb_venda_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_venda_tb_vendedores" Association="Self.FK_tb_venda_tb_vendedores">
+      <End Role="tb_vendedores" EntitySet="tb_vendedores" />
+      <End Role="tb_venda" EntitySet="tb_venda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_vendedores_tb_empresa" Association="Self.FK_tb_vendedores_tb_empresa">
+      <End Role="tb_empresa" EntitySet="tb_empresa" />
+      <End Role="tb_vendedores" EntitySet="tb_vendedores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
